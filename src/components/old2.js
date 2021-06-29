@@ -1,5 +1,5 @@
 import React, { createContext } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { HashRouter, Switch, Route, Link } from "react-router-dom";
 import NavbarBank from "./components/navbar";
 import Landing from "./components/landing.jsx";
 import { UserContext } from "./components/UserContext";
@@ -22,7 +22,7 @@ import Old from "./components/old";
 export default function BadBankRouter() {
   return (
     <>
-      <Router>
+      <HashRouter>
         <UserContext.Provider
           value={{
             useraccounts: [
@@ -39,32 +39,26 @@ export default function BadBankRouter() {
           <hr />
 
           <div>
-            <Switch>
-              <Route exact path="/">
-                <Landing />
-              </Route>
-              <Route path="/createaccount">
-                <CreatAccount />
-              </Route>
-              <Route path="/balance">
-                <Balance />
-              </Route>
-              <Route path="/deposit">
-                <Deposit />
-              </Route>
-              <Route path="/withdrawl">
-                <Withdrawl />
-              </Route>
-              <Route path="/alldata">
-                <AllData />
-              </Route>
-              <Route path="/old">
-                <Old />
-              </Route>
-            </Switch>
+            <Route exact path="/" component={Landing}></Route>
+            <Route path="/createaccount" component={CreatAccount}></Route>
+            <Route path="/balance">
+              <Balance />
+            </Route>
+            <Route path="/deposit">
+              <Deposit />
+            </Route>
+            <Route path="/withdrawl">
+              <Withdrawl />
+            </Route>
+            <Route path="/alldata">
+              <AllData />
+            </Route>
+            <Route path="/old">
+              <Old />
+            </Route>
           </div>
         </UserContext.Provider>
-      </Router>
+      </HashRouter>
     </>
   );
 }
