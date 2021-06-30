@@ -3,7 +3,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import React, { useContext } from "react";
-import { UserContext } from "./UserContext";
+import { UserContext } from "../App";
 
 export default function Landing() {
   const ctx = useContext(UserContext);

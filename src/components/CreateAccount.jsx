@@ -1,18 +1,18 @@
 import React, { useContext } from "react";
-import { UserContext } from "./UserContext";
+import { UserContext } from "../App";
 import Card from "./context";
 
 import Container from "react-bootstrap/Container";
 import { Col } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 
-export default function Balance() {
+export default function CreateAccount() {
   const [show, setShow] = React.useState(true);
   const [status, setStatus] = React.useState("");
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const ctx = React.useContext(UserContext);
+  const ctx = useContext(UserContext);
 
   function validate(field, label) {
     if (!field) {

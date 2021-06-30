@@ -2,9 +2,9 @@ import React, { createContext } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import NavbarBank from "./components/navbar";
 import Landing from "./components/landing.jsx";
-import { UserContext } from "./components/UserContext";
+
 import CreatAccount from "./components/CreateAccount";
-import Balance from "./components/balance";
+
 import AllData from "./components/allData";
 import Deposit from "./components/Deposit";
 import Withdrawl from "./components/withdraw";
@@ -19,6 +19,8 @@ import Old from "./components/old";
 // making sure things like the back button and bookmarks
 // work properly.
 
+export const UserContext = createContext(null);
+
 export default function BadBankRouter() {
   return (
     <>
@@ -29,6 +31,12 @@ export default function BadBankRouter() {
               {
                 name: "Abel",
                 email: "abel@mit.edu",
+                password: "secret",
+                balance: 100,
+              },
+              {
+                name: "jimmy",
+                email: "jimmy@mit.edu",
                 password: "secret",
                 balance: 100,
               },
@@ -46,9 +54,7 @@ export default function BadBankRouter() {
               <Route path="/createaccount">
                 <CreatAccount />
               </Route>
-              <Route path="/balance">
-                <Balance />
-              </Route>
+
               <Route path="/deposit">
                 <Deposit />
               </Route>
